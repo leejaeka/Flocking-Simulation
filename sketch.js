@@ -148,7 +148,7 @@ if (firefox) {
 } else if (mobile) {
     var maxBoids = 150;
 } else {
-    var maxBoids = 500;
+    var maxBoids = 700;
 }
 var minBoids = 250;
 var numBoids = Math.sqrt(canvas.width * canvas.height) / 2;
@@ -481,40 +481,40 @@ function updateQuickness(value) {
     }
 }
 
-// Racism
-var racismControlContainer = document.getElementById('racism-control-container');
-var racismInput = document.getElementById('racism');
-racismInput.onchange = function () {
-    racism = this.value / 5;
-    updateRacism(racism);
-}
-var racismMobile = document.getElementById('racism-mobile');
-racismMobile.onclick = function () {
-    document.getElementById('mobile-boids-controls').style.display = 'none';
-    racismControlContainer.classList.toggle('show');
-}
-function updateRacism(value) {
-    for (var i = 0; i < boids.length; i++) {
-        boids[i].racism = value * boids[i].racismCoefficient;
-    }
-}
+//// Racism
+//var racismControlContainer = document.getElementById('racism-control-container');
+//var racismInput = document.getElementById('racism');
+//racismInput.onchange = function () {
+//    racism = this.value / 5;
+//    updateRacism(racism);
+//}
+//var racismMobile = document.getElementById('racism-mobile');
+//racismMobile.onclick = function () {
+//    document.getElementById('mobile-boids-controls').style.display = 'none';
+//    racismControlContainer.classList.toggle('show');
+//}
+//function updateRacism(value) {
+//    for (var i = 0; i < boids.length; i++) {
+//        boids[i].racism = value * boids[i].racismCoefficient;
+//    }
+//}
 
 // Diversity
-var diversityControlContainer = document.getElementById('diversity-control-container');
-var diversityInput = document.getElementById('diversity');
-diversityInput.onchange = function () {
-    diversity = this.value;
-    updateDiversity(diversity);
-}
-var diversityMobile = document.getElementById('diversity-mobile');
-diversityMobile.onclick = function () {
-    document.getElementById('mobile-boids-controls').style.display = 'none';
-    diversityControlContainer.classList.toggle('show');
-}
-function updateDiversity(value) {
-    for (var i = 0; i < boids.length; i++) {
-        boids[i].color = colors[i % value];
-    }
-}
+//var diversityControlContainer = document.getElementById('diversity-control-container');
+//var diversityInput = document.getElementById('diversity');
+//diversityInput.onchange = function () {
+//    diversity = this.value;
+//    updateDiversity(diversity);
+//}
+//var diversityMobile = document.getElementById('diversity-mobile');
+//diversityMobile.onclick = function () {
+//    document.getElementById('mobile-boids-controls').style.display = 'none';
+//    diversityControlContainer.classList.toggle('show');
+//}
+//function updateDiversity(value) {
+//    for (var i = 0; i < boids.length; i++) {
+//        boids[i].color = colors[i % value];
+//    }
+//}
 
 /*---- end Inputs ----*/

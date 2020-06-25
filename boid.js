@@ -1,3 +1,5 @@
+
+var fish = ["jellyFish","pinkJelly","purpleJelly"];
 class Boid {
 
     /**
@@ -6,6 +8,7 @@ class Boid {
      * @param  object | boid | Initial setup properties for boid
      *
      */
+    
     constructor(boid) {
 
         // Initial Properties
@@ -20,6 +23,11 @@ class Boid {
         this.racism = boid.racism * boid.racismCoefficient;
         this.color = boid.color;
         this.mass = (4 / 3) * Math.PI * Math.pow(this.radius, 3);
+        //console.log(blueFish);
+        //console.log(Math.floor(Math.random() * 3));
+        var string = fish[Math.floor(Math.random() * fish.length)];
+        //console.log(string);
+        this.img = document.getElementById(string);
 
         // Speed & Velocity & Force
         this.maxSpeed = speedIndex * this.quickness;
@@ -28,6 +36,7 @@ class Boid {
         this.velocity = new Victor(this.speed * Math.cos(radians), this.speed * Math.sin(radians));
         //Force and Accel
         this.maxForce = .5;
+        
 
     }
 
@@ -311,16 +320,21 @@ class Boid {
         }
     }
 
+
+
+
     /**
      * Draw Boid to the canvas
      *
      */
     draw() {
-        c.beginPath();
-        c.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2, false);
-        c.fillStyle = this.color;
-        c.fill();
-        c.closePath();
+        
+        c.drawImage(this.img, this.position.x, this.position.y, 15, 15);
+       
+        //c.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2, false);
+        //c.fillStyle = this.color;
+        //c.fill();
+        //c.closePath();
     }
 
     /**
